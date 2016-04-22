@@ -31,7 +31,8 @@ php_fpm_pool "wordpress" do
   listen_owner node['wordpress']['install']['user']
   listen_group node['wordpress']['install']['group']
   php_options node['wordpress']['php_options']
-  start_servers 5
+  start_servers 1
+  max_children 2
 end
 
 include_recipe "php::module_mysql"

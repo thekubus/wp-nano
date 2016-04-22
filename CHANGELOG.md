@@ -1,5 +1,10 @@
 CHANGELOG
 
+v3.0.1alpha (2016-04-10)
+------------------------
+* Recipe database.rb add lines to disable innodb for low memory system
+* New recipe mkswap.rb to create swapfile
+
 v3.0.0 (2015-02-24)
 -------------------
 * Cookbook updated to support the MySQL 6.0 community cookbook

@@ -49,6 +49,13 @@ if is_local_host? db['host']
     action [:create, :start]
   end
 
+  # For a lew memory system (i.e. 1GB or less), disable innodb
+  mysql_config 'default' do
+    source 'innodb.cnf.erb'
+    notifies :restart, 'mysql_service[default]'
+    action :create
+  end
+
   socket = "/var/run/mysql-#{db['instance_name']}/mysqld.sock"
 
   if node['platform_family'] == 'debian'
