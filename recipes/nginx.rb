@@ -35,6 +35,11 @@ php_fpm_pool "wordpress" do
   max_children 2
 end
 
+# Disable default www pool. We are going to use wordpress pool
+php_fpm_pool "www" do
+  enable false
+end
+
 include_recipe "php::module_mysql"
 
 node.set_unless['nginx']['default_site_enabled'] = false
